@@ -18,7 +18,14 @@ export default function Form() {
     e.preventDefault();
     setShowModal((prev) => !prev);
     document.body.classList.add("overflow-hidden");
+    name.current.value="";
+    email.current.value="";
+    description.current.value="";
   };
+
+  const closeModal= () =>{
+    setShowModal(false);
+  }
 
   const handleNameBlur = () => {
     const userInput = name.current.value;
@@ -37,7 +44,7 @@ export default function Form() {
 
   return (
     <div className="w-1/2">
-      {showModal && <Modal name={name.current.value} email={email.current.value}/>}
+      {showModal && <Modal name={name.current.value} email={email.current.value} close={closeModal}/>}
       <h2 className="text-4xl md:text-6xl font-bold text-center">
         Lavora <span className="text-emerald-500">con noi</span>
       </h2>
@@ -84,7 +91,7 @@ export default function Form() {
         />
         <div className="mt-10 flex justify-center">
           <button
-            className={`w-3/4 uppercase bg-emerald-500 p-2 rounded text-white ${!formIsValid ? "bg-emerald-200 cursor-not-allowed" :""}`}
+            className={`w-3/4 uppercase bg-emerald-500 p-2 rounded text-white disabled:opacity-40 disabled:cursor-not-allowed`}
             onClick={handleModal}
             disabled={!formIsValid}
           >
