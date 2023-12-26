@@ -21,17 +21,17 @@ export default function SideMenu(props) {
   return (
     <ul className={props.className}>
       <li>
-        <Link href="/" className={`${isActive("/")} uppercase`}>
+        <Link href="/" className={`${isActive("/")} uppercase my-4 md:my-0`}>
           Home
         </Link>
       </li>
       <li>
-        <Link href="/posts" className={`${isActive("/posts")} uppercase`}>
+        <Link href="/annunci" className={`${isActive("/annunci")} uppercase my-4 md:my-0`}>
           Annunci
         </Link>
       </li>
       <li>
-        <Link href="/contatti" className={`${isActive("/contatti")} uppercase`}>
+        <Link href="/contatti" className={`${isActive("/contatti")} uppercase my-4 md:my-0`}>
           Categorie
         </Link>
       </li>
@@ -44,7 +44,7 @@ export default function SideMenu(props) {
                 setIsLoggedIn((prev) => (prev = session));
               });
             }}
-            className="uppercase p-2 rounded bg-emerald-500 text-white"
+            className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
           >
             Logout
           </button>
@@ -56,7 +56,7 @@ export default function SideMenu(props) {
                 setIsLoggedIn((prev) => (prev = session));
               });
             }}
-            className="uppercase p-2 rounded bg-emerald-500 text-white"
+            className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
           >
             Crea annuncio
           </button>

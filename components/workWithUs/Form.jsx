@@ -43,7 +43,7 @@ export default function Form() {
   };
 
   return (
-    <div className="w-1/2">
+    <div className="mt-4 md:w-1/2 md:mt-0">
       {showModal && <Modal name={name.current.value} email={email.current.value} close={closeModal}/>}
       <h2 className="text-4xl md:text-6xl font-bold text-center">
         Lavora <span className="text-emerald-500">con noi</span>
@@ -51,7 +51,7 @@ export default function Form() {
       <p className="text-slate-400 text-center my-8">
         Invia la tua candidatura per far parte del team di presto
       </p>
-      <form className="w-2/3 mx-auto">
+      <form className="md:w-2/3 mx-auto">
         <div className="flex flex-col">
           <label htmlFor="name" className="text-sm mb-2">
             Nome

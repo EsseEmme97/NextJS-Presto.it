@@ -1,6 +1,7 @@
 import MainSection from "@/components/MainSection";
 import Categories from "@/components/categories/Categories";
 import WorkWithUs from "@/components/workWithUs/WorkWithus";
+import Announcements from "@/components/announcements/Announcements";
 
 export default async function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default async function HomePage() {
       <MainSection />
       <Categories />
       <WorkWithUs/>
+      <Announcements/>
     </>
   );
 }
