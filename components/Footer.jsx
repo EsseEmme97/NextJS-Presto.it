@@ -28,7 +28,7 @@ export default function Footer() {
 
 
   return (
-    <footer className="container bg-slate-900 flex justify-between mx-auto p-8 mt-12">
+    <footer className="container bg-slate-900 flex justify-center md:justify-between mx-auto p-8 mt-12">
       {showModal && <Modal email={email.current.value} close={closeModal}/>}
       <div>
         <h3 className="font-bold text-3xl text-emerald-500">Dove siamo</h3>
@@ -60,7 +60,7 @@ export default function Footer() {
           </span>
         </div>
       </div>
-      <div>
+      <div className="md:block hidden">
         <h3 className="font-bold text-3xl text-emerald-500">Link Utili</h3>
         <Link href="/annunci" className="mt-4 text-slate-400 block">
           Annunci
@@ -72,7 +72,7 @@ export default function Footer() {
           Categorie
         </Link>
       </div>
-      <div>
+      <div className="md:block hidden">
         <h3 className="font-bold text-3xl text-emerald-500">Newsletter</h3>
 		<p className="text-slate-400 mt-4">Iscriviti alla nostra newsletter</p>
 		<form className="border rounded-lg border-white mt-4 p-2">

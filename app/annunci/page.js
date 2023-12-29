@@ -12,7 +12,7 @@ export const metadata = {
 export default function AnnouncementsPage({searchParams}) {
   return (
     <>
-      <h1 className="font-bold text-4xl md:text-6xl text-center md:my-20">
+      <h1 className="font-bold text-4xl my-8 md:text-6xl text-center md:my-20">
         Cerca tra i nostri <span className="text-emerald-500">annunci</span>
       </h1>
       <FilterForm/>

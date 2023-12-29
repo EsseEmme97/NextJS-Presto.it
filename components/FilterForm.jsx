@@ -54,16 +54,16 @@ export default function FilterForm() {
   }, []);
 
   return (
-    <form className="container mx-auto bg-emerald-400 rounded-lg p-8 flex justify-center mb-12" onSubmit={handleSubmit}>
+    <form className="container mx-auto bg-emerald-400 rounded-lg p-8 flex md:flex-row flex-col justify-center mb-12 " onSubmit={handleSubmit}>
       <input
         name="cerca"
-        className="p-2 rounded-lg bg-white outline-none me-8"
+        className="p-2 rounded-lg bg-white outline-none md:me-8 mt-4 "
         placeholder="cerca"
         type="text"
         ref={searchValue}
       />
       <select
-        className="p-2 rounded-lg bg-white outline-none me-8"
+        className="p-2 rounded-lg bg-white outline-none md:me-8 mt-4 "
         name="categoria"
         placeholder="seleziona la categoria"
         ref={categoriesValue}
@@ -76,18 +76,18 @@ export default function FilterForm() {
       <input
         type="number"
         name="min"
-        className="p-2 rounded-lg bg-white outline-none me-8"
+        className="p-2 rounded-lg bg-white outline-none md:me-8 mt-4"
         placeholder="min"
         ref={minValue}
       />
       <input
         type="number"
         name="max"
-        className="p-2 rounded-lg bg-white outline-none me-8"
+        className="p-2 rounded-lg bg-white outline-none md:me-8 mt-4"
         placeholder="max"
         ref={maxValue}
       />
-      <button className="bg-slate-800 p-2 text-white uppercase rounded-lg">
+      <button className="bg-slate-800 p-2 text-white uppercase rounded-lg mt-4 ">
         cerca
       </button>
     </form>
