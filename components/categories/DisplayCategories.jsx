@@ -21,7 +21,7 @@ let categories = [
 
 
 export default function DisplayCategories (){
-	return <div className="flex flex-wrap gap-4 justify-center">
+	return <div className=" flex flex-wrap gap-4 justify-center">
 		{categories.map((el,index)=><Category key={index} src={el.icon} title={el.name} count={el.announcementsCount}/>)}
 	</div>
 }

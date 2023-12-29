@@ -31,7 +31,7 @@ export default function SideMenu(props) {
         </Link>
       </li>
       <li>
-        <Link href="/contatti" className={`${isActive("/contatti")} uppercase my-4 md:my-0`}>
+        <Link href="/categorie" className={`${isActive("/contatti")} uppercase my-4 md:my-0`}>
           Categorie
         </Link>
       </li>

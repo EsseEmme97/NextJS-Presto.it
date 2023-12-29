@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+import {cache} from "react"
 
-async function getAnnouncements() {
+const getAnnouncements= cache(async ()=> {
   const connection = mongoose.createConnection(process.env.MONGODB_URI);
   const announcementsSchema = new mongoose.Schema({
     id: Number,
@@ -20,6 +21,6 @@ async function getAnnouncements() {
   }
 
   connection.close();
-}
+})
 
 module.exports = getAnnouncements;

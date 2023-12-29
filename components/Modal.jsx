@@ -7,7 +7,7 @@ export default function Modal({ name, email, close }) {
         <button className="absolute top-2 right-2 text-gray-600">
           &times;
         </button>
-        <h3 className="text-xl">Congratulazioni {name}</h3>
+        <h3 className="text-xl">Congratulazioni {name ?? ""} !!</h3>
         <hr className="text-slate-700 h-4 my-2"></hr>
         <p className="mt-4">
           A breve riceverai all'indirizzo {email} conferma della ricezione della

@@ -22,11 +22,11 @@ export default function Announcement({ title, price, state, category }) {
       <h5 className="font-bold text-xl ps-3">{title}</h5>
       <p className="text-slate-400 text-sm ps-3">Lorem ipsum dolor sit amet...</p>
       <div className="flex text-emerald-500 mt-4">
-        <div className="border border-dashed border-emerald-500 flex-grow flex ps-2 items-center">
+        <div className="border border-dashed border-emerald-500 w-1/2 flex ps-2 items-center">
           <Image src={tag} width={16} height={16} alt="pricetags" />
           <span className="ms-2 text-sm">{category}</span>
         </div>
-        <div className="border border-dashed border-emerald-500 flex-grow flex p-2 items-center">
+        <div className="border border-dashed border-emerald-500 w-1/2 flex p-2 items-center">
           <Image src={calendar} width={16} height={16} alt="calendart" />
           <span className="ms-2 text-sm">{new Date().toLocaleDateString("it-IT")}</span>
         </div>
