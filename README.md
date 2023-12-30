@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Il Progetto
+Presto.it è una web app progettata per visualizzare e creare annunci di vendita e acquisto per beni di seconda mano.
 
-First, run the development server:
+# Installazione
+Il progetto utilizza principalmente Next.js 14.0.3. Per garantire una corretta visualizzazione, si consiglia di creare un file .env contenente le seguenti variabili:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+NEXTAUTH_SECRET = Consulta la documentazione [qui](https://next-auth.js.org/configuration/options)
+GITHUB_ID = [Dato fornito per l'implementazione del login con GitHub]
+GITHUB_SECRET = [Dato fornito per l'implementazione del login con GitHub]
+MONGODB_URI = [Dato fornito dalla piattaforma MongoDB Atlas per l'accesso al database]
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Struttura del Progetto
+Le cartelle del progetto sono organizzate come segue:
 
-## Learn More
+app: Contiene l'intera struttura del progetto Next.js.
+assets: Contiene tutti i file SVG responsabili delle icone utilizzate nel progetto.
+components: Contiene tutti i singoli componenti utilizzati all'interno della cartella app.
+utils: Contiene alcune funzioni riutilizzate all'interno del progetto.
 
-To learn more about Next.js, take a look at the following resources:
+# Logica di Sviluppo
+Il progetto mira a utilizzare le ultime tecnologie implementate in Next.js 14. La maggior parte dei componenti viene renderizzata lato server per ottimizzare le prestazioni durante il caricamento e migliorare l'indicizzazione SEO.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Solo pochi componenti vengono renderizzati lato client, separando chiaramente l'aggiornamento dell'interfaccia grafica dalla gestione dei dati.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Tutte le immagini e i font vengono pre-caricati lato server, migliorando le prestazioni di caricamento.
 
-## Deploy on Vercel
+Un obiettivo principale durante lo sviluppo è stato ridurre al minimo le richieste al database. Ciò è stato realizzato utilizzando le ultime funzionalità di caching implementate da Next.js, particolarmente evidente nella navigazione della sezione Annunci dell'applicazione.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La sfida interessante è stata implementare la funzionalità degli annunci lato server. Invece di utilizzare hook come useState e useEffect per gestire il filtraggio lato client, i filtri vengono applicati al server mediante l'aggiornamento dell'URL, che invia una nuova richiesta al server con i parametri di filtraggio utente, consentendo l'aggiornamento dell'interfaccia utente lato server.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Le richieste che creano o modificano dati utilizzano le nuove funzionalità sperimentali di React, come i server components, gestendo ogni richiesta tramite una server action.
+
+# Prossime Funzionalità
+
+- Creazione di post personalizzati.
+- Visualizzazione dei post creati per ogni utente.

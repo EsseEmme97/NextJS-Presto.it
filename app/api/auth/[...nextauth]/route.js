@@ -26,7 +26,7 @@ const handler = NextAuth({
     }),
   ],
   callbacks:{async redirect(){
-    return "/posts"
+    return "/annunci"
   }},
   secret: process.env.NEXTAUTH_SECRET,
 });
