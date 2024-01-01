@@ -3,7 +3,7 @@ import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 const checkUser= require("@/utils/checkUsers")
 
-const handler = NextAuth({
+const config= {
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
@@ -29,6 +29,9 @@ const handler = NextAuth({
     return "/annunci"
   }},
   secret: process.env.NEXTAUTH_SECRET,
-});
+}
+
+const handler = NextAuth(config);
 
 export { handler as GET, handler as POST };
+export {config}
