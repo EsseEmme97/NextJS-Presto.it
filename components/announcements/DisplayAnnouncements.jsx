@@ -26,7 +26,7 @@ export default async function DisplayAnnouncements({ limit = false, searchParams
       {data.length!==0?data.map((el) => (
         <Announcement
           key={el.id}
-          id={el.id}
+          id={el["_id"]}
           title={el.name}
           category={el.category}
           price={el.price}

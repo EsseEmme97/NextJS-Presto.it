@@ -5,7 +5,7 @@ import findFavourite from "@/utils/findFavourite";
 
 export async function generateMetadata({ params }) {
   const data = await getAnnouncements();
-  const myAnnouncement = data.filter((el) => el.id == params.id)[0];
+  const myAnnouncement = data.filter((el) => el["_id"] == params.id)[0];
   return {
     title: myAnnouncement.name,
     description:
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
 
 export default async function SingleAnnouncement({ params }) {
   const data = await getAnnouncements();
-  const myAnnouncement = data.filter((el) => el.id == params.id)[0];
+  const myAnnouncement = data.filter((el) => el["_id"] == params.id)[0];
   
   const favourite= await findFavourite(params.id);
 
@@ -33,7 +33,7 @@ export default async function SingleAnnouncement({ params }) {
           <h1 className="font-bold text-4xl md:text-6xl mt-8 md:mt-0">
             {myAnnouncement.name}
           </h1>
-          <AddToFavourites favourite={favourite?.isFavourite ?? false} itemsId={myAnnouncement.id}/>
+          <AddToFavourites favourite={favourite?.isFavourite ?? false} itemsId={myAnnouncement["_id"].toHexString()}/>
         </div>
         <h2 className="text-2xl text-slate-400 mt-4">
           {myAnnouncement.category}
