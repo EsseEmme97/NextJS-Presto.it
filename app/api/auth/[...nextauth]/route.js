@@ -26,7 +26,7 @@ const config= {
     }),
   ],
   callbacks:{async redirect(){
-    return "/annunci"
+    return "/annunci/crea"
   }},
   secret: process.env.NEXTAUTH_SECRET,
 }
