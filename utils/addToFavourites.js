@@ -3,6 +3,7 @@
 import findFavourite from "./findFavourite";
 import { favouritesSchema } from "./findAllUserFavourites";
 const mongoose= require("mongoose")
+import { revalidatePath } from "next/cache";
 
 export default async function AddToFavourites(prevState,formData){
 	const itemsId= formData.get("itemsId");
@@ -13,10 +14,12 @@ export default async function AddToFavourites(prevState,formData){
 
 	if (favourite!==null && favourite!== undefined){
 		await Favourite.deleteOne({items_id:String(itemsId)})		
+		revalidatePath(`/annunci/${itemsId}`)
 		return prevState=false
 	} else{
 		const newFavourite= new Favourite({items_id:itemsId, user:email, isFavourite:true})
 		newFavourite.save()
+		revalidatePath(`/annunci/${itemsId}`)
 		return prevState=true
 	}
 }
