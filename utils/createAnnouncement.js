@@ -21,7 +21,6 @@ export default  async function createAnnouncement(state,formData){
 	const newAnnouncement= new Announcement({name,category,price,type,user:session.user.email});
 	try {
 		await newAnnouncement.save(); 
-		console.log("nuovo annuncio creato con successo")
 		return state=true
 	} catch (error) {
 		console.log(error)

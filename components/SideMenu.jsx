@@ -1,18 +1,11 @@
 import { usePathname } from "next/navigation";
 import { signIn, signOut } from "next-auth/react";
-import { getSession } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function SideMenu(props) {
   const pathName = usePathname();
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-
-  useEffect(() => {
-    getSession().then((session) => {
-      setIsLoggedIn((prev) => (prev = session));
-    });
-  }, []);
+  const {status} = useSession();
 
   const isActive = (path) => {
     return pathName === path ? "text-emerald-500 font-bold" : "";
@@ -41,7 +34,7 @@ export default function SideMenu(props) {
           Categorie
         </Link>
       </li>
-      {isLoggedIn ? (
+      {status === "authenticated" ? (
         <>
         <li>
             <Link
@@ -53,12 +46,7 @@ export default function SideMenu(props) {
           </li>
           <li>
             <button
-              onClick={() => {
-                signOut();
-                getSession().then((session) => {
-                  setIsLoggedIn((prev) => (prev = session));
-                });
-              }}
+              onClick={() => signOut() }
               className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
             >
               Logout
@@ -69,12 +57,7 @@ export default function SideMenu(props) {
       ) : (
         <li>
           <button
-            onClick={() => {
-              signIn(undefined, { callbackUrl: "/annunci/crea" });
-              getSession().then((session) => {
-                setIsLoggedIn((prev) => (prev = session));
-              });
-            }}
+            onClick={() => signIn(undefined, { callbackUrl: "/annunci/crea" })}
             className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
           >
             Crea annuncio
