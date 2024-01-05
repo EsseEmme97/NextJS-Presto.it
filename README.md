@@ -27,13 +27,13 @@ Solo pochi componenti vengono renderizzati lato client, separando chiaramente l'
 
 Tutte le immagini e i font vengono pre-caricati lato server, migliorando le prestazioni di caricamento.
 
-Un obiettivo principale durante lo sviluppo è stato ridurre al minimo le richieste al database. Ciò è stato realizzato utilizzando le ultime funzionalità di caching implementate da Next.js, particolarmente evidente nella navigazione della sezione Annunci dell'applicazione.
+Un obiettivo importante durante lo sviluppo è stato ridurre al minimo le richieste al database. Ciò è stato realizzato utilizzando le ultime funzionalità di caching implementate da Next.js, particolarmente evidente nella navigazione della sezione Annunci dell'applicazione.
 
-La sfida interessante è stata implementare la funzionalità degli annunci lato server. Invece di utilizzare hook come useState e useEffect per gestire il filtraggio lato client, i filtri vengono applicati al server mediante l'aggiornamento dell'URL, che invia una nuova richiesta al server con i parametri di filtraggio utente, consentendo l'aggiornamento dell'interfaccia utente lato server.
+Una sfida interessante è stata implementare la funzionalità di filtraggio degli annunci lato server. Invece di utilizzare hook come useState e useEffect, al momento dell'invio dei dati di filtro viene aggiornato l'URL con dei query params che a loro volta inviano una nuova richiesta al server consentendo l'aggiornamento dell'UI da parte del server. Il motivo per cui è stata utilizzata questa strategia è che in caso di un grande quantitavo di annunci la gestione dell'UI lato client può causare rallentamenti e una cattiva user experience.
 
 Le richieste che creano o modificano dati utilizzano le nuove funzionalità sperimentali di React, come i server components, gestendo ogni richiesta tramite una server action.
 
 # Prossime Funzionalità
 
-- Creazione di post personalizzati.
 - Visualizzazione dei post creati per ogni utente.
+- Animazioni ed interattività del sito.

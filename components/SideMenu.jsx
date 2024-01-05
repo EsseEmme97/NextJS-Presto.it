@@ -26,32 +26,51 @@ export default function SideMenu(props) {
         </Link>
       </li>
       <li>
-        <Link href="/annunci" className={`${isActive("/annunci")} uppercase my-4 md:my-0`}>
+        <Link
+          href="/annunci"
+          className={`${isActive("/annunci")} uppercase my-4 md:my-0`}
+        >
           Annunci
         </Link>
       </li>
       <li>
-        <Link href="/categorie" className={`${isActive("/contatti")} uppercase my-4 md:my-0`}>
+        <Link
+          href="/categorie"
+          className={`${isActive("/contatti")} uppercase my-4 md:my-0`}
+        >
           Categorie
         </Link>
       </li>
-      <li>
-        {isLoggedIn ? (
+      {isLoggedIn ? (
+        <>
+        <li>
+            <Link
+              href="/annunci/crea"
+              className={`${isActive("/annunci/crea")} uppercase my-4 md:my-0`}
+            >
+              Crea Annuncio
+            </Link>
+          </li>
+          <li>
+            <button
+              onClick={() => {
+                signOut();
+                getSession().then((session) => {
+                  setIsLoggedIn((prev) => (prev = session));
+                });
+              }}
+              className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
+            >
+              Logout
+            </button>
+          </li>
+          
+        </>
+      ) : (
+        <li>
           <button
             onClick={() => {
-              signOut();
-              getSession().then((session) => {
-                setIsLoggedIn((prev) => (prev = session));
-              });
-            }}
-            className="uppercase p-2 rounded bg-emerald-500 text-white my-4 md:my-0"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              signIn();
+              signIn(undefined, { callbackUrl: "/annunci/crea" });
               getSession().then((session) => {
                 setIsLoggedIn((prev) => (prev = session));
               });
@@ -60,8 +79,8 @@ export default function SideMenu(props) {
           >
             Crea annuncio
           </button>
-        )}
-      </li>
+        </li>
+      )}
     </ul>
   );
 }

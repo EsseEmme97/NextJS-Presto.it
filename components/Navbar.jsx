@@ -14,7 +14,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex flex-col">
+    <nav className="flex flex-col sticky top-0 left-0 z-20 bg-white">
       <div className="flex justify-between shadow px-8 py-3 items-center text-lg">
         <div className="flex items-center">
           <Image src={logo} width={48} height={48} alt="logo-image" />

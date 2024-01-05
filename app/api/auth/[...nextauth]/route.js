@@ -25,8 +25,12 @@ const config= {
       },
     }),
   ],
-  callbacks:{async redirect(){
-    return "/annunci/crea"
+  callbacks:{async redirect({url,baseUrl}){
+    if(url.match(/^\/annunci$/) || url.match(/^\/annunci\/[^\/]+$/)){
+      return url
+    } else{
+      return baseUrl
+    }
   }},
   secret: process.env.NEXTAUTH_SECRET,
 }

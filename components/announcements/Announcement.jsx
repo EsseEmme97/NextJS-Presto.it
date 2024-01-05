@@ -11,13 +11,13 @@ export default function Announcement({ title, price, state, category,id }) {
     <article className="w-3/4  md:w-1/5 rounded-lg relative shadow">
     <Link href={`/annunci/${id}`}>
       <span
-        className={`absolute top-3 left-3 z-50 p-2 rounded-lg text-white ${badgeStyle}`}
+        className={`absolute top-3 left-3 z-10 p-2 rounded-lg text-white ${badgeStyle}`}
       >
         {badgeContent}
       </span>
       <div className="overflow-hidden">
         <Image
-          src="https://picsum.photos/1080"
+          src="https://fastly.picsum.photos/id/767/1080/1080.jpg?hmac=T33HomyNCV41nPJgz8e4rcDaZ4ZN1EIjI2WxjEHeiqA"
           width={150}
           height={200}
           className="w-full h-full transition-transform hover:scale-110 rounded duration-200"

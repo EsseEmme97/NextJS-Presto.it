@@ -1,7 +1,6 @@
 "use client";
 import { useFormState } from "react-dom";
 import { useSession } from "next-auth/react";
-import { signIn } from "next-auth/react";
 import addToFavourites from "@/utils/addToFavourites";
 
 export default function AddToFavourites({ style,favourite, itemsId }) {
